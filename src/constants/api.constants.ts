@@ -1,0 +1,1 @@
+export const infuraId = "15fb190031944fc7b25b85653eeea9b2"
