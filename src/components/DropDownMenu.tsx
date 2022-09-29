@@ -1,12 +1,12 @@
 import { Box, Button, Menu, MenuItem } from "@mui/material";
 import React from "react";
 
-export interface props {
+export interface Props {
   ticketQuantity: number;
   setTicketQuantity: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function DropDownMenu(props: props) {
+function DropDownMenu(props: Props) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const { ticketQuantity, setTicketQuantity } = props;
 

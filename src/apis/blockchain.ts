@@ -14,9 +14,6 @@ export const enterLottery = async (ticketQuantity: number) => {
   const tokenContract = getTokenContract();
   const ticketPriceMantissa = await lotteryContract.ticketPrice();
   const approvalAmmount = ticketPriceMantissa.mul(ticketQuantity);
-  tokenContract
-    .approve(ContractAddress.LOTTERY_ADDRESS, approvalAmmount, {
-      gasLimit: 100000,
-    })
-    .then(lotteryContract.enterLottery(ticketQuantity));
+  await tokenContract.approve(ContractAddress.LOTTERY_ADDRESS, approvalAmmount, {gasLimit: 100000,})
+  await lotteryContract.enterLottery(ticketQuantity)
 };

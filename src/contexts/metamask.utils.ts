@@ -10,13 +10,11 @@ export const ethereum = window.ethereum;
 
 
 export const initalizeMetamask = async () => {
-  try {
     if (ethereum.isConnected) {
       await ethereum.request({ method: "eth_requestAccounts" });
     } else {
       alert("Please install MetaMask");
     }
-    const provider = new ethers.providers.Web3Provider(ethereum);
 
     ethereum.on("chainChanged", () => {
       window.location.reload();
@@ -27,11 +25,7 @@ export const initalizeMetamask = async () => {
     ethereum.on("disconnect", () => {
       window.location.reload();
     });
-    console.log(provider);
-    return provider;
-  } catch (e) {
-    console.error(e);
-  }
+
 };
 
 export const getAccounts = async () => {
